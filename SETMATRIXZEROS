@@ -1,0 +1,43 @@
+"""
+        Do not return anything, modify matrix in-place instead.
+        """
+        """ BRUTE FORCE:Just traverse whole matrix if you find 0 replace entire row with 'a'    (       if we replace with zero we may get more zeros to be replaced) after that again replace     a with zero. It takes nearly O(N3)
+        def markRow(n):
+            for i in range(0,len(matrix[0])):
+                if matrix[n][i]!=0:
+                    matrix[n][i]='a'
+        def markCol(n):
+            for i in range(0,len(matrix)):
+                if matrix[i][n]!=0:
+                    matrix[i][n]='a'
+
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j]==0:
+                    markRow(i)
+                    markCol(j)
+                #print(matrix[i][j])
+            #print()
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j]=='a':
+                    matrix[i][j]=0
+               
+            print()  
+"""
+     
+    """ Better Solution :take an extra row and colum if matrix contains zero mark that row      coulmn and again reitterate over the matrix by making marked row and coulum with zeros.
+        r=[0 for i in range(len(matrix))]
+        c=[0 for i in range(len(matrix[0]))]
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j]==0:
+                    r[i]='a'
+                    c[j]='a'
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if r[i]=='a' or c[j]=='a':
+                    matrix[i][j]=0
+    """
+        
+        
